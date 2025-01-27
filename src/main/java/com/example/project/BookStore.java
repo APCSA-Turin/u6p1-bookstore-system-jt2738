@@ -26,31 +26,23 @@ public class BookStore{
     // public void addUser(User user){} 
     public void addUser(User user){ // adds a user
         int i=0;
-        while(users[i]!=null){
-            i++;
+        while(users[i]!=null){ // checks if index i of user is null
+            i++;               
         }
-        users[i]=user;
+        users[i]=user; // once it finds the null index, it adds the user at that index 
     } 
     // public void removeUser(User user){}
     public void removeUser(User user){ //removes a user
         User[] newUsers=new User[users.length];
         for(int i= 0, k=0; i<users.length;i++){
-            if(users[i]!=null){
-            if(!users[i].equals(user)){
-                newUsers[k]=users[i];
-                k++;
+            if(users[i]!=null){ //checks if the index i of user is null
+            if(!users[i].equals(user)){ //checks if index is equal to user
+                newUsers[k]=users[i]; // if it is not equal to user, new users's index k will increment and have the same value as the object of users[i]
+                 k++;
             }
         }
-            newUsers[newUsers.length-1]=null;
         }
-   
-        //    for(int i=0,k=0; i<users.length;i++){
-    //     if(!users[i].equals(user)&&users[i]!=null){
-    //         newUsers[k]=users[i];
-    //         k++;
-    //     }
-    // }
-    users=newUsers;
+    users=newUsers; //updates users with new users
 
 }
     // public void consolidateUsers(){}
@@ -58,28 +50,28 @@ public class BookStore{
        User[] newConList= new User[users.length];
        int k=0;
        for(int i=0; i< users.length;i++){
-        if(users[i]!=null){
-            newConList[k]=users[i];
+        if(users[i]!=null){ 
+            newConList[k]=users[i]; // first half of new list ONLY has non null objects
             k++;
         }
        }
        int nullStart=k+1; //tracks where list last left off at a null object
        for(int i=0; i<users.length;i++){
         if((users[i]==null)&&newConList.length!=users.length){
-            newConList[nullStart]=users[i];
+            newConList[nullStart]=users[i]; // second hald of new list ONLY has null objects 
         }
        }
-       users=newConList;
+       users=newConList; // updates users list to newConList
        
     }
 
     // public void addBook(Book book){}
     public void addBook(Book book){ //adds book to Book class
         int i=0;
-        while(books[i]!=null){
+        while(books[i]!=null){ // checks if index is null
             i++;
         }
-        books[i]=book;
+        books[i]=book; // if index is null, that index will have the book added to it
     
         
     }
@@ -88,13 +80,13 @@ public class BookStore{
     public void insertBook(Book book, int index){ //inserts a book at a certain index, length is kept the same
         Book[] newbooks=new Book[books.length];
         for(int i=0; i<index;i++){
-            newbooks[i]=books[i];
+            newbooks[i]=books[i]; // stops once i reaches the index number given
         }
-        newbooks[index]=book;
-        for(int i=index+1; i<newbooks.length;i++){
-            newbooks[i]=books[i-1];
+        newbooks[index]=book; // inserts book at index
+        for(int i=index+1; i<newbooks.length;i++){ 
+            newbooks[i]=books[i-1]; // puts in the rest of the books from the original books list, but books goes from i-1 in order to "shift"
         }
-        books=newbooks;
+        books=newbooks; // books is changed to new books
     }
 
     // public void removeBook(Book book){}

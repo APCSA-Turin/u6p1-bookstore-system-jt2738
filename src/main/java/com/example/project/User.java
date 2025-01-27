@@ -41,12 +41,12 @@ public class User{
 
     // public String bookListInfo(){} //returns a booklist for the user, if empty, output "empty"
     public String bookListInfo(){
-        String booklist="";
+        String booklist=""; 
         for(int i=0; i<books.length;i++){
-            if(books[i]!=null){
-                booklist+= books[i].bookInfo() + "\n";
+            if(books[i]!=null){ //checks if index i of books is null
+                booklist+= books[i].bookInfo() + "\n"; // if not null, prints out book info of the book object
             }else{
-                booklist+= "empty\n";
+                booklist+= "empty\n"; // if null just prints out empty
             }
         }
         return booklist; //returns info about a booklist for the user
